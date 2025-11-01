@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mithil's Salon</title>
+    <link rel="stylesheet" href="style.css?v=2.1">
+</head>
+<body>
+
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="header">
+            <h2>Mithil's Salon ✂️</h2>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot typing-indicator" id="typing-indicator" style="display: none;">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="quick-replies" id="quick-replies">
+            </div>
+        <div class="input-area" id="input-area">
+            <div class="input-wrapper">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="toggle-password" class="toggle-password-btn" style="display: none;">👁️</button>
+            </div>
+            <button id="send-btn">➔</button>
+        </div>
+    </div> 
+    <div id="admin-dashboard" style="display: none;">
+         <div class="admin-header">
+             <h3>Admin Dashboard - All Appointments</h3>
+             <button id="admin-logout-btn">Log Out</button>
+         </div>
+         <div id="appointment-list-wrapper">
+             <div id="appointment-list">
+                 <p>Loading appointments...</p>
+             </div>
+         </div>
+     </div>
+
+
+    <div id="calendar-modal" class="modal">
+         <div class="modal-content">
+            <div class="calendar-header">
+                <button id="prev-month">&lt;</button>
+                <h3 id="month-year">Month Year</h3>
+                <button id="next-month">&gt;</button>
+            </div>
+            <div class="calendar-days">
+                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+            </div>
+            <div class="calendar-dates" id="calendar-dates"></div>
+            <button id="close-calendar" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js?v=2.1"></script> 
+</body>
+</html>
