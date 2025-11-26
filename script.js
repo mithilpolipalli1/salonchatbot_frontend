@@ -2,7 +2,8 @@ const chatBody = document.getElementById("chat-body");
 const inputEl = document.getElementById("chat-input");
 const sendBtn = document.getElementById("send-btn");
 
-const API_URL = "http://localhost:3000/chat";
+// IMPORTANT: Updated API URL for production server
+const API_URL = "http://63.250.52.24:5000/chat";
 
 let state = {
   step: "phone",
