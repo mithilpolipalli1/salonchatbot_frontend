@@ -2,7 +2,7 @@ const chatBody = document.getElementById("chat-body");
 const inputEl = document.getElementById("chat-input");
 const sendBtn = document.getElementById("send-btn");
 
-// IMPORTANT: Updated API URL for production server
+// IMPORTANT: Use your server backend URL
 const API_URL = "http://63.250.52.24:5000/chat";
 
 let state = {
