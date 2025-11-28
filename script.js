@@ -2,8 +2,8 @@ const chatBody = document.getElementById("chat-body");
 const inputEl = document.getElementById("chat-input");
 const sendBtn = document.getElementById("send-btn");
 
-// IMPORTANT: Use your server backend URL
-const API_URL = "http://63.250.52.24:5000/chat";
+// IMPORTANT: Salon chatbot → backend lives under /salon/api/chat
+const API_URL = "/salon/api/chat";
 
 let state = {
   step: "phone",
@@ -37,7 +37,7 @@ function addOptionButton(text, value) {
 }
 
 // -----------------------------------------------------
-// DATE PICKER (ONLY for DATE STEP)
+// DATE PICKER
 // -----------------------------------------------------
 function setupDatePicker() {
   if (!window.flatpickr) return;
@@ -72,7 +72,6 @@ async function handleUserInput(rawText, fromButton = false) {
   const text = (rawText || "").trim();
   if (!text) return;
 
-  // Show user bubble only if typed manually
   if (!fromButton) addMessage(text, "user");
 
   const payload = {
@@ -97,14 +96,12 @@ async function handleUserInput(rawText, fromButton = false) {
     if (data.phone) state.phone = data.phone;
     if (data.tempBooking) state.tempBooking = data.tempBooking;
 
-    // Render buttons
     if (Array.isArray(data.buttons)) {
       data.buttons.forEach(btn => {
         addOptionButton(btn.text, btn.value);
       });
     }
 
-    // Trigger date picker if date step
     if (state.step === "bookDate") {
       setupDatePicker();
     }
@@ -133,6 +130,6 @@ inputEl.addEventListener("keypress", e => {
 });
 
 // -----------------------------------------------------
-// INITIAL MESSAGE
+// FIRST MESSAGE
 // -----------------------------------------------------
 addMessage("Welcome to Mithil's Salon! 💈\nEnter your phone number to continue:");
